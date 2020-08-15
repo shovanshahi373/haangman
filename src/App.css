@@ -28,11 +28,317 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.scibble-image {
+  /* height: 40px; */
+  width: 80px;
+  background-image: url(/images/scribble.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* position: absolute; */
+  /* top: 4%; */
+  transform: rotate(-26deg);
+  /* left: 0%; */
+}
+
+.loading {
+  background-image: url("/images/pencil.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* transform-origin: bottom right; */
+  transform: translateX(0%);
+  transition: transform 1s;
+  background-position: center;
+  width: 100%;
+  height: 7vw;
+  animation: write 1s linear infinite alternate;
+}
+
+.figure-section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 40px 80px; */
+}
+
+.btn {
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.5s;
+  padding: 10px;
+  font-family: inherit;
+  margin: 0 4px;
+  cursor: pointer;
+  font-weight: bolder;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: white;
+  color: black;
+}
+
+.score {
+  /* position: absolute; */
+  background-image: url("/images/score.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 4vw;
+  align-items: center;
+  /* transform: rotate(-20deg); */
+  font-family: "redpen";
+  transform-origin: center;
+  height: 200px;
+  width: 200px;
+}
+
+.score::before {
+  content: "Score";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -6%);
+}
+
+.letterstyle {
+  display: inline-block;
+  padding: 10px;
+  height: 20px;
+  width: 20px;
+  border-bottom: 2px solid green;
+  text-align: center;
+  font-family: "redpen";
+  font-weight: bolder;
+}
+
+@keyframes stroke {
+  0% {
+    stroke-dashoffset: 400px;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    stroke-dashoffset: 275px;
+  }
+}
+
+.lineThrough {
+  position: relative;
+}
+
+.lineThrough::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transition: all 0.5s;
+  transform-origin: center;
+  transform: translate(50%, -50%) scaleX(0) rotate(45deg);
+  height: 2px;
+  width: 50%;
+  background-color: black;
+  /* color: black; */
+  z-index: 4;
+  animation-name: linethrough;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.speech {
+  height: 180px;
+  width: 180px;
+  /* background-image: url(/images/start-speech.png);| */
+  background-image: url(/images/speech-bubble-4.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(25%) scale(0);
+  /* transform: scale(0); */
+  transition: all 0.5s;
+  transform-origin: bottom center;
+  top: -10%;
+  /* animation-name: popAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s; */
+  right: 0%;
+}
+
+.pop-animation {
+  transition: all 0.2s;
+  animation-name: popAnimation;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+}
+
+input {
+  outline: none;
+  background-color: transparent;
+  padding: 10px 5px;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-weight: inherit;
+  margin-bottom: 10px;
+  border-bottom: 3px solid white;
+}
+
+input::placeholder {
+  color: white;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.fadeIn {
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation-name: fadeIn;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+.stamp {
+  opacity: 0;
+  animation-name: stamp;
+  transform: rotate(-20deg) scale(5);
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+.slideLeft {
+  opacity: 0;
+  transition: all 0.5s;
+  transform: translateX(-50%);
+  animation-name: slideLeft;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.slideRight {
+  opacity: 0;
+  transition: all 0.5s;
+  transform: translateX(50%);
+  animation-name: slideRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes linethrough {
+  0% {
+    /* width: 0%; */
+    transform: translate(50%, -50%) scaleX(0) rotate(45deg);
+  }
+  100% {
+    /* width: 50%; */
+    transform: translate(50%, -50%) scaleX(1) rotate(45deg);
+  }
+}
+
+@keyframes popAnimation {
+  0% {
+    transform: translateX(25%) scale(0);
+  }
+  8% {
+    transform: translateX(25%) scale(0);
+  }
+  9% {
+    transform: translateX(25%) scale(1);
+  }
+  10% {
+    transform: translateX(25%) scale(1.1);
+  }
+  12% {
+    transform: translateX(25%) scale(1);
+  }
+  95% {
+    transform: translateX(25%) scale(1);
+  }
+  100% {
+    transform: translateX(25%) scale(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes write {
+  0% {
+    transform: translateX(0%) rotate(20deg);
+  }
+  100% {
+    transform: translateX(25%) rotate(0deg);
+  }
+}
+
+@keyframes stamp {
+  0% {
+    opacity: 0;
+    transform: rotate(-20deg) scale(5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-20deg) scale(1);
   }
 }

@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import Hangman from "./components/Hangman";
+import "./App.css";
+import Modal from "./components/Modal";
+import { difficultyMap } from "./gamevariables";
 
-function App() {
+export default function App() {
+  const [loadHangman, setLoadHangman] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const [hasUserDefinedInput, setHasUserDefinedInput] = useState(false);
+  const [difficulty, setDifficulty] = useState(difficultyMap["expert"]);
+  const gameModeRef = useRef();
+
+  const startGame = (mode) => {
+    setLoadHangman(true);
+  };
+
+  const inputSetter = (val) => {
+    setUserInput(val);
+    setHasUserDefinedInput(true);
+  };
+
+  if (loadHangman)
+    return (
+      <Hangman
+        userInput={userInput}
+        customWord={hasUserDefinedInput}
+        difficulty={difficulty}
+      />
+    );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Modal
+      startGame={startGame}
+      inputSetter={inputSetter}
+      userInput={userInput}
+      setDifficulty={setDifficulty}
+    />
   );
 }
-
-export default App;
