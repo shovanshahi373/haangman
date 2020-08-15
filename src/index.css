@@ -1,11 +1,12 @@
 @font-face {
-  src: url("/fonts/Cheveuxdange.ttf");
+  src: url("./assets/fonts/Cheveuxdange.ttf");
+  /* src: url("/fonts/Cheveuxdange.ttf"); */
   font-family: "redpen";
 }
 
 @font-face {
-  /* src: url("/fonts/PWPerspective.ttf"); */
-  src: url("/fonts/Crosshatcher D.otf");
+  src: url("./assets/fonts/Crosshatcher D.otf");
+  /* src: url("/fonts/Crosshatcher D.otf"); */
   font-family: "perspective";
 }
 
@@ -17,7 +18,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-image: url("/images/wooden-surface.jpg");
+  background-image: url("./assets/images/wooden-surface.jpg");
+  /* background-image: url("/images/wooden-surface.jpg"); */
   background-position: center;
   background-size: cover;
   font-weight: bold;
@@ -36,7 +38,8 @@ code {
   margin: auto;
   min-height: 200vh;
   position: relative;
-  background-image: url("/images/copy-notebook-2.jpg");
+  background-image: url("./assets/images/copy-notebook-2.jpg");
+  /* background-image: url("/images/copy-notebook-2.jpg"); */
   background-position: 0 0;
   background-color: white;
   background-size: contain;
@@ -59,7 +62,8 @@ h1 {
   position: fixed;
   height: 287px;
   width: 500px;
-  background-image: url(/images/pencil-set.png);
+  background-image: url(./assets/images/pencil-set.png);
+  /* background-image: url(/images/pencil-set.png); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

@@ -80,8 +80,13 @@ const Figure = ({
   cancelToken,
 }) => {
   const speechRef = useRef();
-  const cricleStroke = new Audio("/audio/pencilStroke -circle.mp3");
-  const lineStroke = new Audio("/audio/pencilStroke-line.mp3");
+  // const cricleStroke = new Audio("../assets/audio/pencilStroke -circle.mp3");
+  const cricleStroke = new Audio(
+    `${process.env.PUBLIC_URL}/audio/pencilStroke -circle.mp3`
+  );
+  const lineStroke = new Audio(
+    `${process.env.PUBLIC_URL}/audio/pencilStroke-line.mp3`
+  );
 
   const playAudio = () => {
     let pencilStroke;

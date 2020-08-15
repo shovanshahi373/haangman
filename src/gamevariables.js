@@ -22,22 +22,22 @@ export const alphabets = "abcdefghijklmnopqrstuvwxyz";
 export const speechBubbles = {
   start: {
     type: "speech",
-    url: "/images/start-speech.png",
+    url: `${process.env.PUBLIC_URL}/images/start-speech.png`,
   },
   dead: {
     type: "thought",
-    url: "/images/dead-thought.png",
+    url: `${process.env.PUBLIC_URL}/images/dead-thought.png`,
   },
   winning: {
     type: "speech",
-    url: "/images/winning-speech.png",
+    url: `${process.env.PUBLIC_URL}/images/winning-speech.png`,
   },
   angry: {
     type: "thought",
-    url: "/images/angry-thought.png",
+    url: `${process.env.PUBLIC_URL}/images/angry-thought.png`,
   },
   losing: {
     type: "thought",
-    url: "/images/losing-thought.png",
+    url: `${process.env.PUBLIC_URL}/images/losing-thought.png`,
   },
 };

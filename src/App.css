@@ -31,7 +31,8 @@
 .scibble-image {
   /* height: 40px; */
   width: 80px;
-  background-image: url(/images/scribble.png);
+  background-image: url(./assets/images/scribble.png);
+  /* background-image: url(../images/scribble.png); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -42,7 +43,8 @@
 }
 
 .loading {
-  background-image: url("/images/pencil.png");
+  background-image: url("./assets/images/pencil.png");
+  /* background-image: url("/images/pencil.png"); */
   background-size: contain;
   background-repeat: no-repeat;
   /* transform-origin: bottom right; */
@@ -97,7 +99,8 @@
 
 .score {
   /* position: absolute; */
-  background-image: url("/images/score.png");
+  background-image: url("./assets/images/score.png");
+  /* background-image: url("/images/score.png"); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -170,7 +173,8 @@
   height: 180px;
   width: 180px;
   /* background-image: url(/images/start-speech.png);| */
-  background-image: url(/images/speech-bubble-4.png);
+  background-image: url(./assets/images/speech-bubble-4.png);
+  /* background-image: url(/images/speech-bubble-4.png); */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
